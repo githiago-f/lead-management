@@ -24,9 +24,13 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "typeorm": "^0.2.34"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
@@ -56,12 +60,17 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": "__test__/spec",
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "domain/(.*)": "<rootDir>/../../src/domain/$1",
+      "data/(.*)": "<rootDir>/../../src/data/$1",
+      "utils/(.*)": "<rootDir>/../../src/utils/$1"
+    }
   }
 }
