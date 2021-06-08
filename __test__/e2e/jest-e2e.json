@@ -10,9 +10,11 @@
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
   "moduleNameMapper": {
-    "domain/(.*)": "<rootDir>/../../src/domain/$1",
-    "data/(.*)": "<rootDir>/../../src/data/$1",
-    "utils/(.*)": "<rootDir>/../../src/utils/$1"
+    "src/(.*)": "<rootDir>/../../src/$1"
   }
 }

@@ -30,6 +30,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
+    "sqlite3": "^5.0.2",
     "typeorm": "^0.2.34"
   },
   "devDependencies": {
@@ -68,9 +69,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
-      "domain/(.*)": "<rootDir>/../../src/domain/$1",
-      "data/(.*)": "<rootDir>/../../src/data/$1",
-      "utils/(.*)": "<rootDir>/../../src/utils/$1"
+      "src/(.*)": "<rootDir>/../../src/$1"
     }
   }
 }
