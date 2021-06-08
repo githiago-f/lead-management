@@ -1,10 +1,14 @@
 import { createConnection } from 'typeorm';
 import { Constants } from 'src/utils/constants';
 import { Provider } from '@nestjs/common';
+import { User } from 'src/domain/entities/user.entity';
+import { Plan } from 'src/domain/entities/plan.entity';
 
 type Env = 'production' | 'test' | 'development';
 
 const entities = [
+  User,
+  Plan
 ];
 
 const databaseProviderMap = (env: Env) => {
