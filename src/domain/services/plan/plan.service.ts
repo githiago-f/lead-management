@@ -7,7 +7,7 @@ import { CreatePlanDTO } from './dto/CreatePlanDTO';
 @Injectable()
 export class PlanService {
   constructor(
-    @Inject(Constants.providers.usersRepository)
+    @Inject(Constants.providers.plansRepository)
     private plansRepository: Repository<Plan>
   ) {}
 
