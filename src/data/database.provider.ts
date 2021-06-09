@@ -33,7 +33,8 @@ const databaseProviderMap = (env: Env) => {
       useFactory: async () => createConnection({
         type: 'sqlite',
         database: ':memory:',
-        entities
+        entities,
+        synchronize: true
       })
     };
   }

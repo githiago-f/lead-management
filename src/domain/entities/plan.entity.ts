@@ -1,16 +1,19 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('plans')
 export class Plan {
   @PrimaryGeneratedColumn('increment')
-  public readonly id: number;
+  public id: number;
 
   @Column()
-  public readonly name: string;
+  public name: string;
 
   @Column({
     type: 'varchar',
     array: true
   })
-  public readonly attributes: string[];
+  public attributes: string[];
+
+  @Column({precision: 2})
+  public price: number;
 }
