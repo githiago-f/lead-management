@@ -7,10 +7,11 @@ import fetch from 'node-fetch';
 })
 export class CEPValidator implements ValidatorConstraintInterface {
   async validate(value: string): Promise<boolean> {
-    if(!value||!isString(value)){ return false; }
-    const req = await fetch('https://viacep.com.br/ws/01001000/json');
+    if (!value || !isString(value)) { return false; }
+    const cep = value.trim().replace(/\-\./g, '');
+    const req = await fetch(`https://viacep.com.br/ws/${cep}/json`);
     const json = await req.json();
-    if(!json||json.erro===true){
+    if (!json || json.erro === true) {
       return false;
     }
     return true;
