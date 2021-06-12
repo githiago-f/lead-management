@@ -1,4 +1,4 @@
-import { BeforeInsert, Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Plan } from './plan.entity';
 import {hash, compare} from 'bcrypt';
 
@@ -19,13 +19,12 @@ export class User {
   @Column()
   public cep: string;
 
-  @Column()
-  public planId: number;
+  @OneToOne(() => Plan, { eager: true, nullable: true, cascade: true })
+  @JoinColumn({ referencedColumnName: 'id', name: 'planId' })
+  public plan: Plan|null;
 
-  @OneToOne(()=>Plan, {
-    lazy: true
-  })
-  public plan: Plan;
+  @Column({ nullable: true, default: null })
+  public planId: number|null;
 
   @Column()
   public password: string;

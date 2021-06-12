@@ -16,4 +16,7 @@ export class Plan {
 
   @Column({precision: 2})
   public price: number;
+
+  @Column({default: true})
+  public active: boolean;
 }
