@@ -23,4 +23,10 @@ export class UserService {
     user = Object.assign(new CreateUserDTO(), user);
     return this.usersRepository.save(user.buildEntity());
   }
+
+  public async changePlan(userId: string, planId: number) {
+    return this.usersRepository.update(userId, {
+      planId: planId
+    });
+  }
 }

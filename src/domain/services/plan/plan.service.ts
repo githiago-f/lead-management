@@ -19,4 +19,10 @@ export class PlanService {
     const plan = Object.assign(new CreatePlanDTO(), planDto);
     return this.plansRepository.save(plan.toEntity());
   }
+
+  changeState(id: number, doDesable?: true) {
+    return this.plansRepository.update(id, {
+      active: doDesable||false
+    });
+  }
 }

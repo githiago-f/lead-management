@@ -1,10 +1,13 @@
-import { IsNotEmpty, Length, Validate } from 'class-validator';
+import { IsNumber, IsNotEmpty, Validate, Length } from 'class-validator';
 import { User } from 'src/domain/entities/user.entity';
 import { CEPValidator } from '../validators/cep.validator';
 import { CPFValidator } from '../validators/cpf.validator';
 
+export class UpdateUserDTO {
+  @IsNumber()
+  @IsNotEmpty({ message: 'A plan should be selected!' })
+  planId: number;
 
-export class CreateUserDTO {
   @IsNotEmpty({ message: 'campo cpf é obrigatório!' })
   @Validate(CPFValidator)
   cpf: string;
