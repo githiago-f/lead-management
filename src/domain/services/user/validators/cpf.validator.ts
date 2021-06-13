@@ -22,6 +22,7 @@ export class CPFValidator implements ValidatorConstraintInterface {
   isCpf(value: string) {
     const cpf = value.replace(/\-|\./gi, '');
     if(cpf.length!==11){return false;}
+    if(cpf === (cpf[0].repeat(11))){return false;}
     let total = 0, mod;
     for (let i=1; i<=9; i++) {
       total = total + parseInt(cpf.substring(i-1, i)) * (11 - i);
